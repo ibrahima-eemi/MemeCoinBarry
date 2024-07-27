@@ -1,0 +1,25 @@
+2024-07-27T14:23:30.324Z [info]: Server running on port 3001
+2024-07-27T14:24:00.316Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:31:43.863Z [info]: Server running on port 3001
+2024-07-27T14:32:13.857Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:32:48.869Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:33:23.883Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:33:58.892Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:34:07.376Z [error]: Error fetching memes: Operation `memes.find()` buffering timed out after 10000ms
+2024-07-27T14:34:11.855Z [error]: Error creating meme: Operation `memes.insertOne()` buffering timed out after 10000ms
+2024-07-27T14:34:16.367Z [error]: Error creating meme: Operation `memes.insertOne()` buffering timed out after 10000ms
+2024-07-27T14:34:33.900Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:35:08.909Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:35:43.915Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:36:18.925Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:36:53.942Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:37:28.956Z [error]: Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017
+2024-07-27T14:37:43.530Z [info]: Connected to MongoDB
+2024-07-27T14:38:11.189Z [info]: Server running on port 3001
+2024-07-27T14:38:11.220Z [info]: Connected to MongoDB
+2024-07-27T14:38:33.681Z [info]: New meme created
+2024-07-27T14:38:44.334Z [info]: Meme deleted
+2024-07-27T14:38:51.196Z [info]: New meme created
+2024-07-27T14:39:02.061Z [info]: New meme created
+2024-07-27T14:40:25.815Z [info]: Meme deleted
+2024-07-27T14:40:27.412Z [info]: Meme deleted
