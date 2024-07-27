@@ -1,12 +1,11 @@
 // backend/validation.js
 const Joi = require('joi');
 
-const memeSchema = Joi.object({
-    text: Joi.string().min(1).required()
-});
-
 const validateMeme = (data) => {
-    return memeSchema.validate(data);
+    const schema = Joi.object({
+        text: Joi.string().required(),
+    });
+    return schema.validate(data);
 };
 
 module.exports = { validateMeme };

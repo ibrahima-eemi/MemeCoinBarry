@@ -4,7 +4,7 @@ const router = express.Router();
 const memeController = require('../controllers/memeController');
 
 router.get('/', memeController.getAllMemes);
-router.post('/', memeController.createMeme);
+router.post('/', memeController.upload, memeController.createMeme);
 router.delete('/:id', memeController.deleteMeme);
 
 module.exports = router;
