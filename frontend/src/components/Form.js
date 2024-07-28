@@ -1,5 +1,6 @@
 // frontend/src/components/Form.js
 import React, { useState } from 'react';
+import { TextField, Button, Box, Typography } from '@mui/material';
 
 const Form = ({ addMeme }) => {
     const [text, setText] = useState('');
@@ -7,18 +8,10 @@ const Form = ({ addMeme }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!text) {
-            alert('Text is required');
-            return;
-        }
 
         const formData = new FormData();
         formData.append('text', text);
-        if (image) {
-            formData.append('image', image);
-        }
-
-        console.log('Form data:', formData); // Log the form data
+        formData.append('image', image);
 
         addMeme(formData);
         setText('');
@@ -26,20 +19,46 @@ const Form = ({ addMeme }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
+        <Box
+            component="form"
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            sx={{ mt: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        >
+            <Typography variant="h5" component="div" gutterBottom>
+                Add a new Meme
+            </Typography>
+            <TextField
+                label="Meme Text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Enter meme text"
+                fullWidth
+                margin="normal"
                 required
             />
-            <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-            />
-            <button type="submit">Add Meme</button>
-        </form>
+            <Button
+                variant="contained"
+                component="label"
+                sx={{ mt: 2, mb: 2 }}
+            >
+                Choose File
+                <input
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    onChange={(e) => setImage(e.target.files[0])}
+                />
+            </Button>
+            {image && <Typography variant="body2">{image.name}</Typography>}
+            <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                fullWidth
+            >
+                Add Meme
+            </Button>
+        </Box>
     );
 };
 

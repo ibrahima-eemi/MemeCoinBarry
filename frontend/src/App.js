@@ -1,9 +1,10 @@
-// frontend/src/App.js
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Container, AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import Home from './pages/Home';
+import CreateMeme from './pages/CreateMeme';
 import MemeList from './components/MemeList';
-import Form from './components/Form';
+import './App.css';
 
 function App() {
     const [memes, setMemes] = useState([]);
@@ -33,16 +34,30 @@ function App() {
         fetch(`http://localhost:3001/api/memes/${id}`, {
             method: 'DELETE',
         })
-            .then(() => setMemes(memes.filter(meme => meme._id !== id)))
-            .catch(error => console.error('Error deleting meme:', error));
+        .then(() => setMemes(memes.filter(meme => meme._id !== id)))
+        .catch(error => console.error('Error deleting meme:', error));
     };
 
     return (
-        <div className="App">
-            <Header />
-            <Form addMeme={addMeme} />
-            <MemeList memes={memes} removeMeme={removeMeme} />
-        </div>
+        <Router>
+            <Container maxWidth="lg">
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" style={{ flexGrow: 1 }}>
+                            MemeCoin
+                        </Typography>
+                        <Button color="inherit" component={Link} to="/">Home</Button>
+                        <Button color="inherit" component={Link} to="/create-meme">Create Meme</Button>
+                    </Toolbar>
+                </AppBar>
+                <Box mt={2}>
+                    <Routes>
+                        <Route path="/" element={<Home memes={memes} removeMeme={removeMeme} />} />
+                        <Route path="/create-meme" element={<CreateMeme addMeme={addMeme} />} />
+                    </Routes>
+                </Box>
+            </Container>
+        </Router>
     );
 }
 

@@ -54,3 +54,45 @@
 2024-07-27T17:28:31.560Z [info]: Received data:
 2024-07-27T17:28:31.561Z [info]: Received file:
 2024-07-27T17:28:31.589Z [info]: New meme created
+2024-07-27T22:32:40.424Z [info]: Connected to MongoDB
+2024-07-27T22:32:40.442Z [info]: Server running on port 3001
+2024-07-27T22:52:00.482Z [info]: Meme deleted
+2024-07-27T22:52:22.171Z [info]: Received data:
+2024-07-27T22:52:22.171Z [info]: Received file:
+2024-07-27T22:52:22.202Z [info]: New meme created
+2024-07-27T22:52:37.582Z [info]: Received data:
+2024-07-27T22:52:37.583Z [info]: Received file:
+2024-07-27T22:52:37.587Z [info]: New meme created
+2024-07-28T09:01:36.972Z [info]: Meme deleted
+2024-07-28T09:01:39.614Z [info]: Meme deleted
+2024-07-28T09:02:18.039Z [info]: Received data:
+2024-07-28T09:02:18.040Z [info]: Received file:
+2024-07-28T09:02:18.045Z [info]: New meme created
+2024-07-28T09:06:45.203Z [info]: Meme deleted
+2024-07-28T09:06:56.141Z [info]: Received data:
+2024-07-28T09:06:56.141Z [info]: Received file:
+2024-07-28T09:06:56.144Z [info]: New meme created
+2024-07-28T09:07:16.586Z [info]: Received data:
+2024-07-28T09:07:16.586Z [info]: Received file:
+2024-07-28T09:07:16.594Z [info]: New meme created
+2024-07-28T09:07:55.982Z [info]: Received data:
+2024-07-28T09:07:55.982Z [info]: Received file:
+2024-07-28T09:07:55.985Z [info]: New meme created
+2024-07-28T09:07:57.932Z [info]: Meme deleted
+2024-07-28T09:07:58.939Z [info]: Meme deleted
+2024-07-28T09:08:00.735Z [info]: Meme deleted
+2024-07-28T09:10:57.841Z [info]: Received data:
+2024-07-28T09:10:57.841Z [info]: Received file:
+2024-07-28T09:10:57.845Z [info]: New meme created
+{"level":"info","message":"Server running on port 3001"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"New meme created"}
+{"level":"info","message":"Server running on port 3001"}
+{"level":"info","message":"Connected to MongoDB"}
+{"level":"info","message":"New meme created"}
+{"level":"info","message":"New meme created"}
+{"level":"info","message":"Meme deleted successfully"}
+{"level":"info","message":"Meme deleted successfully"}
+{"level":"info","message":"Meme deleted successfully"}
+{"level":"info","message":"New meme created"}
+{"level":"info","message":"Meme deleted successfully"}

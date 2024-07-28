@@ -1,73 +1,50 @@
-// backend/controllers/memeController.js
-const Meme = require('../models/Meme');
-const { validateMeme } = require('../validation');
-const logger = require('../logger');
+const Meme = require('../models/memeModel');
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        cb(null, 'uploads');
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname);
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path.extname(file.originalname));
     }
 });
 
-const upload = multer({ 
-    storage: storage,
-    limits: { fileSize: 10 * 1024 * 1024 }, // Limite de taille de fichier à 10MB
-    fileFilter: (req, file, cb) => {
-        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
-            return cb(new Error('Only image files are allowed!'), false);
-        }
-        cb(null, true);
-    }
-});
+const upload = multer({ storage: storage });
 
-exports.upload = upload.single('image');
+exports.uploadMiddleware = upload.single('image');
 
-exports.getAllMemes = async (req, res) => {
+exports.createMeme = async (req, res) => {
     try {
-        const memes = await Meme.find();
-        res.json(memes);
+        const { text } = req.body;
+        const image = req.file.filename;
+
+        const newMeme = new Meme({ text, image });
+        await newMeme.save();
+
+        res.status(201).json(newMeme);
     } catch (error) {
-        logger.error(`Error fetching memes: ${error.message}`);
-        res.status(500).json({ message: error.message });
+        res.status(400).json({ error: error.message });
     }
 };
 
-exports.createMeme = async (req, res) => {
-    logger.info('Received data:', req.body);
-    logger.info('Received file:', req.file);
-
-    const { error } = validateMeme(req.body);
-    if (error) {
-        logger.warn(`Validation error: ${error.details[0].message}`);
-        return res.status(400).json({ message: error.details[0].message });
-    }
-
-    const meme = new Meme({
-        text: req.body.text,
-        imageUrl: req.file ? `/uploads/${req.file.filename}` : null
-    });
-
+exports.getMemes = async (req, res) => {
     try {
-        const newMeme = await meme.save();
-        logger.info('New meme created');
-        res.status(201).json(newMeme);
+        const memes = await Meme.find();
+        res.status(200).json(memes);
     } catch (error) {
-        logger.error(`Error creating meme: ${error.message}`);
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ error: error.message });
     }
 };
 
 exports.deleteMeme = async (req, res) => {
     try {
-        await Meme.findByIdAndDelete(req.params.id);
-        logger.info('Meme deleted');
-        res.json({ message: 'Meme deleted' });
+        const { id } = req.params;
+        await Meme.findByIdAndDelete(id);
+        res.status(204).send();
     } catch (error) {
-        logger.error(`Error deleting meme: ${error.message}`);
-        res.status(500).json({ message: error.message });
+        res.status(400).json({ error: error.message });
     }
 };
