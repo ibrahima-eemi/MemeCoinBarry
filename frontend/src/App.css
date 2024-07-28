@@ -1,22 +1,33 @@
-/* frontend/src/App.css */
+body {
+    background-color: #2e2e2e; /* Dark background for the entire app */
+    color: white; /* Light text for contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .App {
     text-align: center;
+    padding: 20px;
 }
 
 form {
     margin-bottom: 20px;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
 }
 
-input[type="text"] {
+input[type="text"], input[type="file"] {
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
-}
-
-input[type="file"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #555;
+    color: white;
 }
 
 button {
@@ -31,4 +42,29 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.MemeList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.MemeList li {
+    background-color: #444;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.MemeList img {
+    max-width: 150px;
+    max-height: 150px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.MemeList button {
+    margin-left: auto;
 }

@@ -1,0 +1,21 @@
+.custom-header {
+    background-color: #4CAF50; /* Green color */
+    border-radius: 15px; /* Rounded corners */
+    margin: 20px; /* Spacing around the header */
+    padding: 10px; /* Padding inside the header */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.title {
+    flex-grow: 1; /* Makes the title take up available space */
+}
+
+.nav-links a {
+    margin-left: 20px; /* Spacing between links */
+    color: white; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
