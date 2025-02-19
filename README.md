@@ -34,7 +34,7 @@
 ### Clonez ce dépôt sur votre machine locale :
 
 ```bash
-git clone https://github.com/yourusername/MemeCoinBarry.git
+git clone https://github.com/ibrahima-eemi/MemeCoinBarry.git
 cd MemeCoinBarry
 ```
 #### Backend
